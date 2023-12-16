@@ -57,21 +57,7 @@ app.post('/login', (req, res) => {
     const sql = "SELECT * FROM signup WHERE `email` = ? AND `password` = ?";
     const { email, password } = req.body;
     console.log(password);
-    // const isPasswordValid = await bcrypt.compare(password, password);
-    // const getUserQuery = 'SELECT * FROM signup WHERE email = ?';
-    // const [userData] =  db.query(getUserQuery, [email]);
-    // console.log(userData[0].password);
-
-    // db.query(sql, [req.body.email, req.body.password], (err, data) => {
-    //     if(err){
-    //         return res.json("ERROR");
-    //     }
-    //     if(data.length > 0){
-    //         return res.json("Success");
-    //     }else{
-    //         return res.json("Failed");
-    //     }
-    // });
+    
 
     const checkEmail = email;
     const checkEmailQuery = 'SELECT * FROM signup WHERE email = ?';
@@ -130,36 +116,6 @@ app.post('/login', (req, res) => {
 
 // ======================
 
-
-// app.post('/login', async (req, res) => {
-//   const { email, password } = req.body;
-
-//   try {
-//     // Retrieve user with the given email from the database
-//     const getUserQuery = 'SELECT * FROM signup WHERE email = ?';
-//     const [userData] =  db.query(getUserQuery, [email]);
-//     console.log(userData[0].password);
-
-//     if (userData.length === 0) {
-//       // User not found
-//       return res.json('Failed');
-//     }
-
-//     // Compare the entered password with the hashed password in the database
-//     const isPasswordValid = await bcrypt.compare(password, userData[0].password);
-
-//     if (isPasswordValid) {
-//       // Password is correct
-//       return res.json('Success');
-//     } else {
-//       // Password is incorrect
-//       return res.json('Failed');
-//     }
-//   } catch (error) {
-//     console.error(error);
-//     return res.json('ERROR');
-//   }
-// });
 
 
 
